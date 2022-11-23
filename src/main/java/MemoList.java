@@ -56,41 +56,31 @@ public class MemoList implements Memo_input, Memo_read,  Memo_delete {
             int searchId;
             String password;
 
-            ArrayList<Memo> memoData = new ArrayList<Memo>();
-            Memo memo1 = new Memo(1, "이재원", "1234", "내용");
-            Memo memo2 = new Memo(2, "이재원2", "1234", "내용2");
-            Memo memo3 = new Memo(3, "이재원3", "1234", "내용3");
-            memoData.add(memo1);
-            memoData.add(memo2);
-            memoData.add(memo3);
-
             Scanner sc = new Scanner(System.in);
             System.out.print("글 번호 입력 : ");
             searchId = Integer.parseInt(sc.nextLine());
-            for (int i = 0; i < memoData.size(); i++) {
-                if (searchId == memoData.get(i).num) {
-                    int itemNum = memoData.get(i).num;
+            for (int i = 0; i < memoDate.size(); i++) {
+                if (searchId == memoDate.get(i).num) {
+                    int itemNum = memoDate.get(i).num;
                     System.out.println("✨" + itemNum + "번 글을 찾았습니다.");
-                    System.out.println("내용 : " + memoData.get(i).content);
+                    System.out.println("내용 : " + memoDate.get(i).content);
                     System.out.print("삭제하려면 비밀번호 입력 : ");
                     password = sc.nextLine();
 
-                    if (memoData.get(i).password.equals(password)) {
-                        memoData.remove(i);
+                    if (memoDate.get(i).password.equals(password)) {
+                        memoDate.remove(i);
                         System.out.println("✨" + itemNum + "번 글을 삭제했습니다");
                         System.out.println("✨남은 메모리스트 ======================");
                         // 메모 삭제 후 num을 앞당겨주는 기능
-                        for (int j = 0; j < memoData.size(); j++) {
+                        for (int j = 0; j < memoDate.size(); j++) {
                             if (j < i) {
-                                memoData.set(j, new Memo(memoData.get(j).num, memoData.get(j).name, memoData.get(j).password, memoData.get(j).content));
+                                memoDate.set(j, new Memo(memoDate.get(j).num, memoDate.get(j).name, memoDate.get(j).password, memoDate.get(j).content));
                             } else {
-                                memoData.set(j, new Memo(memoData.get(j).num - 1, memoData.get(j).name, memoData.get(j).password, memoData.get(j).content));
+                                memoDate.set(j, new Memo(memoDate.get(j).num - 1, memoDate.get(j).name, memoDate.get(j).password, memoDate.get(j).content));
                             }
 
-                            System.out.println("num : " + memoData.get(j).num + ", name : " + memoData.get(j).name + ", content : " + memoData.get(j).content);
+                            System.out.println("num : " + memoDate.get(j).num + ", name : " + memoDate.get(j).name + ", content : " + memoDate.get(j).content);
                         }
-                        System.out.println("====================================");
-                        System.out.println("입력 끝");
                     } else {
                         System.out.println("비밀번호가 틀렸습니다.");
                     }
