@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -89,15 +91,20 @@ public class MemoList implements Memo_input, Memo_read,  Memo_delete {
 
         }
 
-    public void update() {
-//        ArrayList<Memo> memoData = new ArrayList<Memo>();
-//        Memo memo1 = new Memo(1, "이재원", "1234", "내용");
-//        Memo memo2 = new Memo(2, "이재원2", "1234", "내용2");
-//        Memo memo3 = new Memo(3, "이재원3", "1234", "내용3");
-//        memoData.add(memo1);
-//        memoData.add(memo2);
-//        memoData.add(memo3);
+    public String getCreteAt() {
+        LocalDateTime now = LocalDateTime.now();
 
+        // 현재 날짜/시간 출력
+        System.out.println(now);
+
+        // 포맷팅
+        String creteAt = now.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초"));
+
+        // 포맷팅 현재 날짜/시간 출력
+        System.out.println(creteAt);
+        return creteAt;
+    }
+    public void update() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -108,15 +115,20 @@ public class MemoList implements Memo_input, Memo_read,  Memo_delete {
             if (selectNumber == memoDate.get(i).num) {
                 System.out.print("\n✨ 비밀번호를 입력하세요.\n→ ");
                 String selectPassword = scanner.nextLine();
-                if (memoDate.get(i).password.equals(selectPassword)){
+                if (memoDate.get(i).password.equals(selectPassword)) {
                     System.out.print("\n✨ 내용을 작성하세요.\n→ ");
                     String content = scanner.nextLine();
                     memoDate.set(i, new Memo(memoDate.get(i).num, memoDate.get(i).name, memoDate.get(i).password, content));
+
                     System.out.println("\n✨ 메모가 수정되었습니다.");
+                    getCreteAt();
+
                     return;
+                } else {
+                    System.out.println("비밀번호가 정확하지 않습니다. \n다시 시도해 주세요\n");
                 }
             }
         }
     }
-    }
+}
 
