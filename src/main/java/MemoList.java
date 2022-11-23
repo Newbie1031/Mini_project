@@ -102,7 +102,7 @@ public class MemoList implements Memo_input, Memo_read,  Memo_delete {
 
         // 포맷팅 현재 날짜/시간 출력
         System.out.println(creteAt);
-//        return creteAt;
+
     }
     public void update() {
 

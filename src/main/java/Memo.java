@@ -9,13 +9,13 @@ public class Memo {
     String password;
     String content;
 
-    LocalDateTime creteAt;
+
     public Memo(int num, String name, String password, String content) {
         this.num = num;
         this.name = name;
         this.password = password;
         this.content = content;
-//        this.creteAt = LocalDateTime.now();
+
     }
 
     void update(String name) {
@@ -23,7 +23,7 @@ public class Memo {
         this.name = name;
         this.password = password;
         this.content = content;
-        this.creteAt= LocalDateTime.now();
+
     }
 
     public int getNum() {
