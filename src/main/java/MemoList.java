@@ -2,8 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MemoList implements Memo_input, Memo_update, Memo_delete {
-    int searchId;
-    String password;
+
 //    여러 건의 메모를 저장하는 클래스 이다.
 //    메모 전체를 조회할 수 있다. (Getter/Setter 존재)
 //    작성 최신 순으로 메모를 출력한다.
@@ -17,6 +16,9 @@ public class MemoList implements Memo_input, Memo_update, Memo_delete {
     @Override
     public void delete() {
         System.out.println("재원 작업공간");
+        int searchId;
+        String password;
+
         ArrayList<Memo> memoData = new ArrayList<Memo>();
         Memo memo1 = new Memo(1, "이재원", "1234", "내용");
         Memo memo2 = new Memo(2, "이재원2", "1234", "내용2");
@@ -27,22 +29,24 @@ public class MemoList implements Memo_input, Memo_update, Memo_delete {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("글 번호 입력 : ");
-        searchId = sc.nextInt();
+        searchId = Integer.parseInt(sc.nextLine());
         for(int i=0; i<memoData.size(); i++){
             if(searchId == memoData.get(i).num){
-                System.out.println("내가 찾은 글은");
-                System.out.println(memoData.get(i).num);
-                System.out.println(memoData.get(i).name);
-                System.out.println(memoData.get(i).content);
-                System.out.println(memoData.get(i).password);
+                int itemNum = memoData.get(i).num;
+                System.out.println(itemNum + "번 글을 찾았습니다.");
                 System.out.print("비밀번호 입력 : ");
                 password = sc.nextLine();
-                if(password == memoData.get(i).password){
-                    System.out.println("삭제시작");
-                }else System.out.println("비밀번호가 틀렸습니다.");
+
+                if(memoData.get(i).password.equals(password)){
+                    memoData.remove(i);
+                    System.out.println(itemNum + "번 글을 삭제했습니다");
+                    for (int j=0; j<memoData.size(); j++){
+                        System.out.println("num : " + memoData.get(j).num + ", content : " + memoData.get(j).content);
+                    }
+                }else{
+                    System.out.println("비밀번호가 틀렸습니다.");
+                }
             }
         }
-
-
     }
 }
