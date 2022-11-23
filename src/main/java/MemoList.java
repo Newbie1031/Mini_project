@@ -91,7 +91,7 @@ public class MemoList implements Memo_input, Memo_read,  Memo_delete {
 
         }
 
-    public String getCreteAt() {
+    public void getCreteAt() {
         LocalDateTime now = LocalDateTime.now();
 
         // 현재 날짜/시간 출력
@@ -102,7 +102,7 @@ public class MemoList implements Memo_input, Memo_read,  Memo_delete {
 
         // 포맷팅 현재 날짜/시간 출력
         System.out.println(creteAt);
-        return creteAt;
+//        return creteAt;
     }
     public void update() {
 
@@ -122,7 +122,6 @@ public class MemoList implements Memo_input, Memo_read,  Memo_delete {
 
                     System.out.println("\n✨ 메모가 수정되었습니다.");
                     getCreteAt();
-
                     return;
                 } else {
                     System.out.println("비밀번호가 정확하지 않습니다. \n다시 시도해 주세요\n");
