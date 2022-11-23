@@ -27,11 +27,11 @@ public class MemoList implements Memo_input, Memo_read,  Memo_delete {
         int num = 0;
 
 
-        System.out.println("이름을 입력하세요.\n→");
+        System.out.print("이름을 입력하세요.\n→");
         name_input = sc.nextLine();
-        System.out.println("비밀번호를 입력하세요.\n→");
+        System.out.print("비밀번호를 입력하세요.\n→");
         password_input = sc.nextLine();
-        System.out.println("메모를 입력하세요.\n→");
+        System.out.print("메모를 입력하세요.\n→");
         content_input = sc.nextLine();
         memoDate.add(new Memo(memoDate.size() + 1, name_input, password_input, content_input));
     }
