@@ -98,5 +98,42 @@ public class MemoList implements Memo_input, Memo_read,  Memo_delete {
             }
 
         }
+
+    public void update() {
+        ArrayList<Memo> memoData = new ArrayList<Memo>();
+        Memo memo1 = new Memo(1, "이재원", "1234", "내용");
+        Memo memo2 = new Memo(2, "이재원2", "1234", "내용2");
+        Memo memo3 = new Memo(3, "이재원3", "1234", "내용3");
+        memoData.add(memo1);
+        memoData.add(memo2);
+        memoData.add(memo3);
+
+        System.out.println("");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("수정하실 글 번호를 입력해주세요");
+        int selectNumber = Integer.parseInt(scanner.nextLine());
+
+        for (int i = 0; i < memoData.size(); i++) {
+            if (selectNumber != memoData.get(i).num) {
+                System.out.println("존재하지 않는 메모입니다");
+            } else {
+                System.out.println("비밀번호를 입력해 주세요");
+                String selectPassword = scanner.nextLine();
+
+                for (int j = 0; j < memoData.size(); j++) {
+                    if (selectPassword != memoData.get(j).password) {
+                        System.out.println("비밀번호가 일치하지 않습니다.");
+                    } else {
+                        System.out.println("본문을 작성해주세요");
+                        String content = scanner.nextLine();
+
+                        System.out.println("메모가 수정되었습니다");
+                        System.out.println("");
+                    }
+                }
+            }
+        }
+    }
     }
 

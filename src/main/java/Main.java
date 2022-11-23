@@ -22,7 +22,7 @@ public class Main {
             } else if (select_Num.equals("2")) {
                 memoList.read();
             } else if (select_Num.equals("3")) {
-                System.out.println("메모를 수정합니다.");
+                memoList.update();
             } else if (select_Num.equals("4")) {
                 memoList.delete();
             } else if (select_Num.equals("5")) {
