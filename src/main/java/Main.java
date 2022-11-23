@@ -18,9 +18,9 @@ public class Main {
             select_Num = sc.nextLine();
 
             if (select_Num.equals("1")) {
-                System.out.println("메모를 입력합니다.");
+                memoList.input();
             } else if (select_Num.equals("2")) {
-                System.out.println("메모 목록을 확인합니다.");
+                memoList.read();
             } else if (select_Num.equals("3")) {
                 System.out.println("메모를 수정합니다.");
             } else if (select_Num.equals("4")) {

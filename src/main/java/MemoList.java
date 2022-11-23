@@ -1,7 +1,8 @@
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MemoList implements Memo_input, Memo_update, Memo_delete {
+public class MemoList implements Memo_input,Memo_read, Memo_delete {
 
 //    여러 건의 메모를 저장하는 클래스 이다.
 //    메모 전체를 조회할 수 있다. (Getter/Setter 존재)
@@ -12,6 +13,47 @@ public class MemoList implements Memo_input, Memo_update, Memo_delete {
 //    글 1건을 삭제하는 메소드가 있다.
 //    글 삭제 후 글 번호를 다시 붙여준다.
 //    글이 삭제된 후 새 글이 입력될 때 idx가 기존 idx값에 이어서 1씩 증가할 수 있도록 count의 값을 수정한다.
+int memoSize = 0;
+    ArrayList<Memo> memoDate = new ArrayList<>();
+
+    @Override
+    public void input() {
+
+        Scanner sc = new Scanner(System.in);
+
+        String name_input;
+        String password_input;
+        String content_input;
+
+        boolean flag = true;
+        int num = 0;
+
+        if (flag) {
+            System.out.println("이름을 입력하세요.\n→");
+            name_input = sc.nextLine();
+            System.out.println("비밀번호를 입력하세요.\n→");
+            password_input = sc.nextLine();
+            System.out.println("메모를 입력하세요.\n→");
+            content_input = sc.nextLine();
+            memoDate.add(new Memo(num, name_input, password_input, content_input));
+        }else {
+            flag = false;
+        }
+    }
+
+    @Override
+    public void read() {
+
+        System.out.println("번호와 내용이 출력됩니다.");
+        // 모두 출력
+        for (int i = 0; i < memoDate.size(); i++) {
+            System.out.println("-----"+(i+1)+"번 메모"+"-----");
+            System.out.println("번호: " + memoDate.get(i).getNum());
+            System.out.println("내용: " + memoDate.get(i).getContent());
+            System.out.println();
+        }
+
+    }
 
     @Override
     public void delete() {

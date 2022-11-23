@@ -26,4 +26,19 @@ public class Memo {
         this.creteAt= LocalDateTime.now();
     }
 
+    public int getNum() {
+        return num;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getContent() {
+        return content;
+    }
 }
