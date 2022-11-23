@@ -5,6 +5,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String select_Num;
 
+        MemoList memoList = new MemoList();
+
         while (true) {
             System.out.println("숫자를 입력해주세요.");
             System.out.println("1. 입력");
@@ -26,6 +28,7 @@ public class Main {
                 break;
             } else if (select_Num.equals("4")) {
                 System.out.println("메모를 삭제합니다.");
+                memoList.delete();
                 break;
             } else if (select_Num.equals("5")) {
                 System.exit(0);
