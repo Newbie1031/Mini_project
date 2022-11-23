@@ -108,26 +108,14 @@ public class MemoList implements Memo_input, Memo_read,  Memo_delete {
             if (selectNumber == memoDate.get(i).num) {
                 System.out.print("\n✨ 비밀번호를 입력하세요.\n→ ");
                 String selectPassword = scanner.nextLine();
-
-                for (int j = 0; j < memoDate.size(); j++) {
-                    if (memoDate.get(j).password.equals(selectPassword)) { // String 한정
-                        System.out.print("\n✨ 내용을 작성하세요.\n→ ");
-                        String content = scanner.nextLine();
-
-                        memoDate.set(j, new Memo(memoDate.get(j).num, memoDate.get(j).name, memoDate.get(j).password, content));
-                        System.out.println("\n✨ 메모가 수정되었습니다.");
-                        return;
-//                        System.out.println("");
-                    }
-//                    else {
-//                        System.out.println("비밀번호가 일치하지 않습니다.");
-//                    }
+                if (memoDate.get(i).password.equals(selectPassword)){
+                    System.out.print("\n✨ 내용을 작성하세요.\n→ ");
+                    String content = scanner.nextLine();
+                    memoDate.set(i, new Memo(memoDate.get(i).num, memoDate.get(i).name, memoDate.get(i).password, content));
+                    System.out.println("\n✨ 메모가 수정되었습니다.");
+                    return;
                 }
-
             }
-//            else {
-//                System.out.println("존재하지 않는 메모입니다");
-//            }
         }
     }
     }
